@@ -10,7 +10,16 @@ now = datetime.now()
 #loading workbook => summer_projxl.xlsx
 wb = openpyxl.load_workbook('summer_projxl.xlsx')
 type(wb)
+
 ws = wb.active	#Allows you to write into speadsheet
+
+#Changing column dimensions
+ws.column_dimensions['A'].width = 20
+ws.column_dimensions['B'].width = 20
+ws.column_dimensions['C'].width = 15
+ws.column_dimensions['D'].width = 15
+
+
 c = ws['A1']		
 d = ws['B1']
 e = ws['C1']
@@ -24,64 +33,66 @@ f.font = Font(bold=True)
 
 #Writing values to cells (Title of each column)
 sheet = wb.get_sheet_by_name('Sheet1')	#Picked Sheet1
-sheet['A1'] = 'Name'
-sheet['B1'] = 'Id_Num'
+sheet['A1'] = 'ID Data'
+sheet['B1'] = 'Student\'s Name'
 sheet['C1'] = 'Date'
 sheet['D1'] = 'Time'
 
 #Adding values to each cell under appropiate column
-sheet['A2'] = 'Freddy'
-sheet['B2'] = '515'
-sheet['C2'] = now.strftime("%m/%d/%Y")
-sheet['D2'] = now.strftime("%H:%M:%S")
+sheet['A2'] = '515'
+sheet['B2'] = 'Freddy'
+sheet['C2'] = now.strftime("%m/%d/%Y")  #format mm/dd/yyyy
+sheet['D2'] = now.strftime("%H:%M:%S")  #format hh:mm
 
-sheet['A3'] = 'Gary'
-sheet['B3'] = '428'
+sheet['A3'] = '428'
+sheet['B3'] = 'Gary'
 sheet['C3'] = now.strftime("%m/%d/%Y")
 sheet['D3'] = now.strftime("%H:%M:%S")
 
-sheet['A4'] = 'Ashok'
-sheet['B4'] = '596'
+sheet['A4'] = '596'
+sheet['B4'] = 'Ashok'
 sheet['C4'] = now.strftime("%m/%d/%Y")
 sheet['D4'] = now.strftime("%H:%M:%S")
 
-sheet['A5'] = 'Timothy'
-sheet['B5'] = '354'
+sheet['A5'] = '354'
+sheet['B5'] = 'Timothy'
 sheet['C5'] = now.strftime("%m/%d/%Y")
 sheet['D5'] = now.strftime("%H:%M:%S")
 
-sheet['A6'] = 'Paul'
-sheet['B6'] = '896'
+sheet['A6'] = '896'
+sheet['B6'] = 'Paul'
 sheet['C6'] = now.strftime("%m/%d/%Y")
 sheet['D6'] = now.strftime("%H:%M:%S")
 
-sheet['A7'] = 'Jasmine'
-sheet['B7'] = '596'
+sheet['A7'] = '596'
+sheet['B7'] = 'Jasmine'
 sheet['C7'] = now.strftime("%m/%d/%Y")
 sheet['D7'] = now.strftime("%H:%M:%S")
 
-sheet['A8'] = 'Xavier'
-sheet['B8'] = '381'
+sheet['A8'] = '381'
+sheet['B8'] = 'Xavier'
 sheet['C8'] = now.strftime("%m/%d/%Y")
 sheet['D8'] = now.strftime("%H:%M:%S")
 
-sheet['A9'] = 'Jane'
-sheet['B9'] = '786'
+sheet['A9'] = '786'
+sheet['B9'] = 'Jane'
 sheet['C9'] = now.strftime("%m/%d/%Y")
 sheet['D9'] = now.strftime("%H:%M:%S")
 
-sheet['A10'] = 'Bob'
-sheet['B10'] = '685'
+sheet['A10'] = '685'
+sheet['B10'] = 'Bob'
 sheet['C10'] = now.strftime("%m/%d/%Y")
 sheet['D10'] = now.strftime("%H:%M:%S")
 
-sheet['A11'] = 'Zack'
-sheet['B11'] = '262'
+sheet['A11'] = '262'
+sheet['B11'] = 'Zack'
 sheet['C11'] = now.strftime("%m/%d/%Y")
 sheet['D11'] = now.strftime("%H:%M:%S")
 
-#Changing column dimensions
-#ws.column_dimensions['D'].width = 10.71
+for rowOfCellObjects in sheet['A1': 'D11']:
+	for cellObj in rowOfCellObjects:
+		print(cellObj.coordinate, cellObj.value)
+	print('--- END OF ROW ---\n')
 
 wb.save('summer_projxl.xlsx')	#Saves updates on excel file
 
