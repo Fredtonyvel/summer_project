@@ -18,12 +18,28 @@ d.font = Font(bold=True)
 e.font = Font(bold=True)
 f.font = Font(bold=True)
 
-#Writing values to cells
+#Writing values to cells (Title of each column)
 sheet = wb.get_sheet_by_name('Sheet1')	#Picked Sheet1
 sheet['A1'] = 'Name'
 sheet['B1'] = 'Id_Num'
 sheet['C1'] = 'Date'
 sheet['D1'] = 'Time'
+
+#Adding values to each cell under appropiate column
+sheet['A2'] = 'Freddy'
+sheet['B2'] = '515'
+sheet['C2'] = '6-30-2016'
+sheet['D2'] = '3:53'
+
+sheet['A3'] = 'Gary'
+sheet['B3'] = '428'
+sheet['C3'] = '6-30-2016'
+sheet['D3'] = '3:54'
+
+sheet['A4'] = 'Ashok'
+sheet['B4'] = '596'
+sheet['C4'] = '6-30-2016'
+sheet['D4'] = '3:55'
 
 #Changing column dimensions
 #ws.column_dimensions['D'].width = 10.71
