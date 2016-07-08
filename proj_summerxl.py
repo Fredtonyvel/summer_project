@@ -2,6 +2,10 @@ import openpyxl
 import os
 from openpyxl.workbook import Workbook
 from openpyxl.styles import Font, Fill
+from datetime import datetime
+
+now = datetime.now()
+#print now.strftime("%m/%d/%Y %H:%M:%S")
 
 #loading workbook => summer_projxl.xlsx
 wb = openpyxl.load_workbook('summer_projxl.xlsx')
@@ -28,18 +32,53 @@ sheet['D1'] = 'Time'
 #Adding values to each cell under appropiate column
 sheet['A2'] = 'Freddy'
 sheet['B2'] = '515'
-sheet['C2'] = '6-30-2016'
-sheet['D2'] = '3:53'
+sheet['C2'] = now.strftime("%m/%d/%Y")
+sheet['D2'] = now.strftime("%H:%M:%S")
 
 sheet['A3'] = 'Gary'
 sheet['B3'] = '428'
-sheet['C3'] = '6-30-2016'
-sheet['D3'] = '3:54'
+sheet['C3'] = now.strftime("%m/%d/%Y")
+sheet['D3'] = now.strftime("%H:%M:%S")
 
 sheet['A4'] = 'Ashok'
 sheet['B4'] = '596'
-sheet['C4'] = '6-30-2016'
-sheet['D4'] = '3:55'
+sheet['C4'] = now.strftime("%m/%d/%Y")
+sheet['D4'] = now.strftime("%H:%M:%S")
+
+sheet['A5'] = 'Timothy'
+sheet['B5'] = '354'
+sheet['C5'] = now.strftime("%m/%d/%Y")
+sheet['D5'] = now.strftime("%H:%M:%S")
+
+sheet['A6'] = 'Paul'
+sheet['B6'] = '896'
+sheet['C6'] = now.strftime("%m/%d/%Y")
+sheet['D6'] = now.strftime("%H:%M:%S")
+
+sheet['A7'] = 'Jasmine'
+sheet['B7'] = '596'
+sheet['C7'] = now.strftime("%m/%d/%Y")
+sheet['D7'] = now.strftime("%H:%M:%S")
+
+sheet['A8'] = 'Xavier'
+sheet['B8'] = '381'
+sheet['C8'] = now.strftime("%m/%d/%Y")
+sheet['D8'] = now.strftime("%H:%M:%S")
+
+sheet['A9'] = 'Jane'
+sheet['B9'] = '786'
+sheet['C9'] = now.strftime("%m/%d/%Y")
+sheet['D9'] = now.strftime("%H:%M:%S")
+
+sheet['A10'] = 'Bob'
+sheet['B10'] = '685'
+sheet['C10'] = now.strftime("%m/%d/%Y")
+sheet['D10'] = now.strftime("%H:%M:%S")
+
+sheet['A11'] = 'Zack'
+sheet['B11'] = '262'
+sheet['C11'] = now.strftime("%m/%d/%Y")
+sheet['D11'] = now.strftime("%H:%M:%S")
 
 #Changing column dimensions
 #ws.column_dimensions['D'].width = 10.71
