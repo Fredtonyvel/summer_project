@@ -1,5 +1,6 @@
 import openpyxl
 import os
+import calendar
 from openpyxl.workbook import Workbook
 from openpyxl.styles import Font, Fill
 from openpyxl.styles import colors
@@ -87,6 +88,24 @@ for l in range (2,12):
 	time = now.strftime("%H:%M:%S")
 	sheet['D' + str(l)] = time
 	print l, ' = ', time
+
+sheet['A12'] = '65489'
+sheet['B12'] = 'test'
+sheet['C12'] =  31
+sheet['D12'] =  '11:59'
+
+sheet_count = 0
+last_day = calendar.mdays[datetime.date.today().month]
+
+print "last_day = ", last_day
+print "sheet['C12'].value = ", sheet['C12'].value 
+
+'''
+if( sheet['C12'].value == last_day):
+	for z in range (12,15):
+		sheet['A' + str(z)] = 'It worked!'
+		print z
+'''
 
 '''
 #For loop to print out values in each cell
