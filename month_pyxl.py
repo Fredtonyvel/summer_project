@@ -54,15 +54,36 @@ if (sheet_value == '12:29'):
 else:
 	print "No Match!"
 '''
-
+'''
 if (sheet_value == '12:41'):
 	sheet_count = sheet.max_column
 	sheet_count += 1
 	print "New sheet.max_column =", get_column_letter(sheet_count)
 else:
 	print "Didn't work!"
+'''
+
+if (sheet_value == '13:18'):
+	sheet_count = sheet.max_column
+	sheet_count += 3
+	print "New sheet.max_column =", get_column_letter(sheet_count)
+
+	sheet[get_column_letter(sheet_count) + str(1)] = 'New_Date'
+else:
+	print "Didn't work!"
 
 
+
+#new_sheet_count += 1
+#print "New sheet.max_column =", get_column_letter(sheet_count)
+
+
+'''
+for i in range (2, 11):
+	date = now.strftime("%m/%d/%Y")
+	sheet['A' + str(i)] = date
+	print i, ' = ', date
+'''
 
 
 
