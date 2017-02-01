@@ -15,6 +15,9 @@ def formular():
     wb.active
     sheet = wb.get_sheet_by_name('Sheet')
     next_month = "{:%B %Y}".format(datetime.date.today() + relativedelta.relativedelta(months=1))
+    curr_col = sheet.max_column
+    curr_col=get_column_letter(curr_col)
+    i=1
     if "Monthly_STAT" not in worksheet:
         wb.create_sheet (index=2, title="Monthly_STAT")
         monthly_STAT=wb.get_sheet_by_name('Monthly_STAT')
@@ -31,7 +34,19 @@ def formular():
         max_col=sheet.max_column
         max_row = sheet.max_row
         formular_col=get_column_letter(max_col)
-        monthly_STAT['b%s' % row]= '=SUM(Sheet!%s2:%s%d)' % (formular_col,formular_col,max_row)
+        if monthly_STAT.cell('a%d' % row).value == sheet.cell('%s1' % curr_col).value:
+            while row >=2 and max_col >=3:
+                formular_col=get_column_letter(max_col)
+                monthly_STAT['b%s' % row]= '=SUM(Sheet!%s2:%s%d)' % (formular_col,formular_col,max_row)
+                row-=1
+                max_col-=1
+        '''         
+        else:
+            row = row -1
+            max_col=sheet.max_column-1
+            formular_col=get_column_letter(max_col)
+            monthly_STAT['b%s' % row]= '=SUM(Sheet!%s2:%s%d)' % (formular_col,formular_col,max_row)
+        '''
         wb.save('testing.xlsx')
         
 
@@ -49,11 +64,29 @@ def formular():
             monthly_STAT['a%d' % row]= this_month 
         max_col=sheet.max_column
         max_row = sheet.max_row
-        formular_col=get_column_letter(max_col)
-        monthly_STAT['b%s' % row]= '=SUM(Sheet!%s2:%s%d)' % (formular_col,formular_col,max_row)
+        #formular_col=get_column_letter(max_col)
+
+        if monthly_STAT.cell('a%d' % row).value == sheet.cell('%s1' % curr_col).value:
+           while row >=2 and max_col >=3:
+                formular_col=get_column_letter(max_col)
+                monthly_STAT['b%s' % row]= '=SUM(Sheet!%s2:%s%d)' % (formular_col,formular_col,max_row)
+                row-=1
+                max_col-=1
+        '''
+            row = row -1
+            max_col=sheet.max_column-1
+            formular_col=get_column_letter(max_col)
+            monthly_STAT['b%s' % row]= '=SUM(Sheet!%s2:%s%d)' % (formular_col,formular_col,max_row)
+        else:
+            row = row -1
+            max_col=sheet.max_column-1
+            formular_col=get_column_letter(max_col)
+            monthly_STAT['b%s' % row]= '=SUM(Sheet!%s2:%s%d)' % (formular_col,formular_col,max_row)
+            '''
 
         wb.save('testing.xlsx')
         
+
 
 
 

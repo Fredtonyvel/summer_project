@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """Smartcard CardRequest(Modified by Gary Tsai).
 
 __author__ = Gary Tsai and Freddy Velez
@@ -37,9 +39,9 @@ from openpyxl.utils import coordinate_from_string
 from openpyxl.styles import Font
 from header import header
 from search_student import search_Student
-from art import art_schedule
+#from art import art_schedule
 from formular import formular
-from exec import exe
+#from exec import exe
 import alert
 import re
 import os
@@ -53,8 +55,8 @@ class CardRequest(object):
     kind of smart card an application is waited for.
     """
 
-    def __init__(self, newcardonly=False, readers=None, cardType=None,
-        cardServiceClass=None, timeout=1):
+    def __init__(self, newcardonly=True, readers=None, cardType=None,
+        cardServiceClass=None, timeout=None):
         """Construct new CardRequest.
 
         newcardonly:        if True, request a new card
@@ -97,7 +99,7 @@ wb=load_workbook('testing.xlsx', data_only = True)
 wb.active
 worksheet= wb.get_sheet_names()
 sheet = wb.get_sheet_by_name('Sheet')
-_thread.start_new_thread(exe,())
+#_thread.start_new_thread(exe,())
 
 
 while __name__ == '__main__':
@@ -121,9 +123,6 @@ while __name__ == '__main__':
     if card == cardtype and length == word_len :
         header()
         search_Student(texting)
-        #print (alert.go)
-        #time.sleep(2.5)
-        #os.system ('clear')
         cs.connection.disconnect()
         formular()
 
@@ -133,5 +132,6 @@ while __name__ == '__main__':
         os.system ('clear')
         print (alert.stop)
         os.system ('say Try Again')
-        
+
+ 
    
