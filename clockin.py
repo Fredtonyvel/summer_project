@@ -112,8 +112,7 @@ class timesheet:
 		wb.save("clocking.xlsx")
 		
 	
-	def column_to_add(self,col): ar
-	
+	def column_to_add(self,col):
 		wb = openpyxl.load_workbook("clocking.xlsx")
 		sheet =wb.get_sheet_by_name('Sheet')
 		sheet= wb.active

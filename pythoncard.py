@@ -46,7 +46,7 @@ import alert
 import re
 import os
 import time, threading 
-import _thread
+import thread
 import smtplib
 
 
