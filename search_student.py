@@ -55,8 +55,9 @@ def search_Student (x):
         os.system ('clear')
         #os.system ('echo "New Student"')
         print ("\t\t****** NEW STUDENT ******\n")
-        student_name , student_email =prompt_with_timeout()
-        
+        student_name , student_email = prompt_with_timeout()
+        #again = student_name
+
         sheet['%s%d' % (col2,insert_name)] =str(student_name)
         sheet['%s%d' % (col,insert_name)] =str(x)
         sheet['%s%d' % (col4,insert_name)] =first_time
