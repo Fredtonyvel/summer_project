@@ -18,8 +18,8 @@ def prompt_with_timeout():
     e = ""
     
   except KeyboardInterrupt:
-    n = raw_input("Student's Name -> ")
-    e = raw_input("Student's Email -> ")
+    n = input("Student's Name -> ")
+    e = input("Student's Email -> ")
     if n == "" or  e == "" or n == "None" or  e == "None":
       print("No Name or Email was logged")
     else:
